@@ -1,10 +1,11 @@
 import axios from 'axios';
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import Modal from 'react-bootstrap/Modal';
 
+const endpoint = "http://127.0.0.1:8000/api/kodigo";
 
-const Editar = ({modal, setModal, id, setRefresh}) => {
-    
+const ModalStore = ({modal, setModal, setRefresh}) => {
+
     const [NombreEstudiante, setNombreEstudiante] = useState("");
     const [Empresa, setEmpresa] = useState("");
     const [BootCamps, setBootCamps] = useState("");
@@ -13,23 +14,11 @@ const Editar = ({modal, setModal, id, setRefresh}) => {
     const [MontoCobrar, setMontoCobrar] = useState("");
     const [CobroFee, setCobroFee] = useState("");
 
-    const edit = async() => {
-        await axios.get(`http://127.0.0.1:8000/api/kodigo/${id}`)
-        .then(response => {
-            console.log(response);
-            setNombreEstudiante(response.data.NombreEstudiante);
-            setEmpresa(response.data.Empresa);
-            setBootCamps(response.data.BootCamps);
-            setFechaFinal(response.data.FechaFinal);
-            setFechaInicio(response.data.FechaInicio);
-            setMontoCobrar(response.data.MontoCobrar);
-            setCobroFee(response.data.CobroFee);
-        })
-    }
 
-    const update = async(e) => {
+    const store = async (e) => {
         e.preventDefault();
-        await axios.put(`http://127.0.0.1:8000/api/kodigo/${id}`,{
+        try {
+          await axios.post(endpoint, {
             NombreEstudiante: NombreEstudiante,
             BootCamps: BootCamps,
             Empresa: Empresa,
@@ -37,17 +26,13 @@ const Editar = ({modal, setModal, id, setRefresh}) => {
             FechaFinal: FechaFinal,
             CobroFee: CobroFee,
             MontoCobrar: MontoCobrar,
-        })
-        .then(response => {
-            setRefresh(true);
-            setModal(false);
-        })
-    }
-
-    useEffect(() => {
-        edit();
-    }, [id]);
-
+          });
+          setModal(false);
+          setRefresh(true);
+        } catch (err) {
+          console.log(err);
+        }
+      };
   return (
     <Modal show={modal} setModal={false}>
         <Modal.Header >
@@ -152,14 +137,14 @@ const Editar = ({modal, setModal, id, setRefresh}) => {
                   >
                     Cerrar
                   </button>
-                  <button type="button" onClick={update} class="btn btn-primary">
+                  <button type="button" onClick={store} class="btn btn-primary">
                     Guardar
                   </button>
                 </div>
               </form>
         </Modal.Body>
     </Modal>
-  )
+  );
 }
 
-export default Editar
+export default ModalStore

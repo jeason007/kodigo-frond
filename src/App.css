@@ -1,38 +1,153 @@
-*{margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; font-size: 13px;}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+}
 
-.header{width: 100%; height: 100px; background-color: white;  position: relative; box-shadow: 3px 3px 6px black; border-radius: 10px;}
-.info{width: 100%; height: 200px; 
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  position: relative;
+  box-shadow: 3px 3px 6px black;
+  border-radius: 10px;
+}
+
+.info {
+  width: 100%;
+  height: 200px;
   box-shadow: 0 0 1rem 0 rgb(0 0 0 / 20%);
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
 }
-.footer{width: 100%; height: 130px; background: #41295a;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-   box-shadow: -3px -3px 6px black;}
-.logo{width: 80px; height: 80px; position:absolute; top: 5px; left: 5px; border-radius: 5px;
-      background-image: url(../src/img/kofigoim.png);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;}
-.kodigo{position:absolute; top: 37px; left: 100px;}
-.conta{width: 100%; height: auto; background: #42275a;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-   padding: 10px 10px; overflow: auto;}
-.boton{position: absolute; bottom: 5px; right: 5px; width: 120px; height: 50px; background-color: none; padding: 5px 5px;}
-.center{text-align: left; padding-left: 5px;}
-.buscador{width: 100%; height: 60px; background-color: none; padding: 10px 10px;}
-#table{box-shadow: 0 0 1rem 0 rgb(0 0 0 / 20%);
+
+.footer {
+  width: 100%;
+  height: 130px;
+  background: #41295a;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2F0743, #41295a);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2F0743, #41295a);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: -3px -3px 6px black;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-radius: 5px;
+  background-image: url(../src/img/kofigoim.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.kodigo {
+  position: absolute;
+  top: 37px;
+  left: 100px;
+}
+
+.conta {
+  width: 100%;
+  height: auto;
+  background: #42275a;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #734b6d, #42275a);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #734b6d, #42275a);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 10px 10px;
+  overflow: auto;
+}
+
+.boton {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 120px;
+  height: 50px;
+  background-color: none;
+  padding: 5px 5px;
+}
+
+.center {
+  text-align: left;
+  padding-left: 5px;
+}
+
+.buscador {
+  width: 100%;
+  height: 60px;
+  background-color: none;
+  padding: 10px 10px;
+}
+
+#table {
+  box-shadow: 0 0 1rem 0 rgb(0 0 0 / 20%);
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px); color:whitesmoke; border-radius: 10px; box-shadow: 3px 3px 6px black,-3px -3px 6px black;}
-  .bo{background-color: transparent; border-radius: 10px;}
-  #inpu{background-color: rgba(70, 13, 136, 0.459);color:orange;}
-  #ico{color: orange; text-shadow: 1px 1px 2px black,-1px -1px 2px black;}
-  #inpu-conta{box-shadow: 2px 2px 3px black,-2px -2px 3px black; width: auto;}
-  #header-modal{background-color: #2F0743; color: white;}
-  .modal-body{background-color:whitesmoke;}
-  #bot{width: 100%; height: 60px; background-color: rgba(9, 190, 166, 0.584); margin-bottom: 2px; margin-top: 2px; text-align: left; position: relative;}
-  .bootcamp{position: absolute; right: 5px; bottom: 2px; width: auto; height: 30px; background-color:none; text-align: right;padding: 5px 5px;}
-  #act{margin-left: 5px;}
+  backdrop-filter: blur(10px);
+  color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px black, -3px -3px 6px black;
+}
+
+.bo {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+#inpu {
+  background-color: rgba(70, 13, 136, 0.459);
+  color: orange;
+}
+
+#ico {
+  color: orange;
+  text-shadow: 1px 1px 2px black, -1px -1px 2px black;
+}
+
+#inpu-conta {
+  box-shadow: 2px 2px 3px black, -2px -2px 3px black;
+  width: auto;
+}
+
+#header-modal {
+  background-color: #2F0743;
+  color: white;
+}
+
+.modal-body {
+  background-color: whitesmoke;
+}
+
+#bot {
+  width: 100%;
+  height: 60px;
+  background-color: rgba(9, 190, 166, 0.584);
+  margin-bottom: 2px;
+  margin-top: 2px;
+  text-align: left;
+  position: relative;
+}
+
+.bootcamp {
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+  width: auto;
+  height: 30px;
+  background-color: none;
+  text-align: right;
+  padding: 5px 5px;
+}
+
+#act {
+  margin-left: 5px;
+}
