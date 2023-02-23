@@ -14,7 +14,6 @@ const ModalStore = ({modal, setModal, setRefresh}) => {
     const [MontoCobrar, setMontoCobrar] = useState("");
     const [CobroFee, setCobroFee] = useState("");
 
-
     const store = async (e) => {
         e.preventDefault();
         try {
