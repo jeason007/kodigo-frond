@@ -5,7 +5,7 @@ import "../../src/App.css";
 
 const endpoint = "http://127.0.0.1:8000/api/kodigo";
 
-const ModalStore = ({ modal, setModal, setRefresh }) => {
+const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
   const [NombreEstudiante, setNombreEstudiante] = useState("");
   const [BootCamps, setBootCamps] = useState("");
   const [Empresa, setEmpresa] = useState("");
@@ -36,8 +36,11 @@ const ModalStore = ({ modal, setModal, setRefresh }) => {
         Facturado: Facturado,
         noFacturado: noFacturado,
       });
-      setModal(false);
       setRefresh(true);
+      
+      setModal(false);
+      setAlert(true);
+
     } catch (err) {
       console.log(err);
     }

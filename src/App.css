@@ -203,5 +203,8 @@ html{background-color: #2F0743;}
   background: #734b6d;
 }
 
-/*css button */
+/*css alerta */
+.alertSuccess::root {
+  --toastify-color-progress-dark: blue;
+}
 

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 
-const Editar = ({ modal, setModal, id, setRefresh }) => {
+const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
   const [NombreEstudiante, setNombreEstudiante] = useState("");
   const [BootCamps, setBootCamps] = useState("");
   const [Empresa, setEmpresa] = useState("");
@@ -55,6 +55,7 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
       .then((response) => {
         setRefresh(true);
         setModal(false);
+        setAlert(true)
       })
       .catch(error => {
         console.log(error)

@@ -2,9 +2,7 @@ import "../../src/App.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Editar from "./Editar";
-
-
-
+import { toast, ToastContainer } from 'react-toastify';
 
 const Estudiantes = ({ refresh, setRefresh  }) => {
   const endpoint = "http://127.0.0.1:8000/api";
@@ -14,8 +12,16 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
   const [busqueda, setBusqueda] = useState("");
   const [id, setId] = useState("");
   const [modalEdit, setModalEdit] = useState(false);
+  const [alert, setAlert] = useState(false);
   
-  
+  const mostrarAlert = () => {
+    if(alert){
+      toast.dark("Se Modifico Correctamente !", {
+        position: toast.POSITION.TOP_RIGHT,
+        className: 'alertSuccess'
+      });
+    }
+  }
   
   
 
@@ -46,32 +52,47 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
     if (refresh) {
       setRefresh();
       getAllEstudents();
-    
-     
-
-     
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresh]);
+
+  useEffect(() => {
+    mostrarAlert()
+  }, [alert]);
 
   //hacemos una funcion donde se hara la consulta
   const getAllEstudents = async () => {
     const respuesta = await axios.get(`${endpoint}/kodigo`);
     setEstudiant(respuesta.data);
     setTablaEstu(respuesta.data);
-  
-    
 
   };
 
   const borrarEstudiantes = async (id) => {
-    await axios.delete(`${endpoint}/kodigo/${id}`);
-    getAllEstudents();
+    await axios.delete(`${endpoint}/kodigo/${id}`)
+    .then(response => {
+      if(response.status === 200){
+        toast.dark("Se Elimino Correctamente !", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        getAllEstudents();
+      }else{
+        toast.error("No Elimino Vuelva a intentarlo...", {
+          position: toast.POSITION.TOP_RIGHT
+          // className: 'alertSuccess'
+        });
+      }
+    })
+    .catch(error => {
+      toast.error("No Elimino Vuelva a intentarlo...", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    })
   };
 
   return (
     <body className="bo">
-      
+      <ToastContainer />
       <div className="buscador">
         <div class="input-group mb-3" id="inpu-conta">
           <span class="input-group-text" id="basic-addon1">
@@ -213,50 +234,12 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
         </>
       ))}
 
-      <div>
-        <div
-          class="modal fade"
-          id="exampleModal2"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  New message
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body"></div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Send message
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <Editar
         modal={modalEdit}
         setModal={setModalEdit}
         id={id}
         setRefresh={setRefresh}
+        setAlert={setAlert}
       />
       
     </body>

@@ -1,11 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //import axios from "axios";
 import ModalStore from "./ModalStore";
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const Headboard = ({refresh, setRefresh}) => {
   
   const [modalStore, setModalStore] = useState(false);
+
+  const [alert, setAlert] = useState(false);
+
+  const mostrarAlert = () => {
+    if(alert){
+      toast.dark("Se agrego Corectamente !", {
+        position: toast.POSITION.TOP_RIGHT,
+        className: 'alertSuccess'
+      });
+    }
+  }
+
+  useEffect(() => {
+    mostrarAlert();
+  }, [alert]);
 
   return (
     <div className="header">
@@ -22,7 +38,8 @@ const Headboard = ({refresh, setRefresh}) => {
         </button>
       </div>
       
-      <ModalStore modal={modalStore} setModal={setModalStore} setRefresh={setRefresh}/>
+      <ModalStore modal={modalStore} setModal={setModalStore} setRefresh={setRefresh} setAlert={setAlert}/>
+      <ToastContainer />
       
     </div>
   );
