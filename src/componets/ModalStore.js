@@ -35,11 +35,20 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
         Fechacashin: Fechacashin,
         Facturado: Facturado,
         noFacturado: noFacturado,
-      });
-      setRefresh(true);
-      
-      setModal(false);
-      setAlert(true);
+      })
+      .then(response => {
+        // console.log(response);
+        if(response.status === 200){
+
+          setRefresh(true);
+        
+          setModal(false);
+          setAlert(true);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
 
     } catch (err) {
       console.log(err);

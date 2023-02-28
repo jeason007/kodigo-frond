@@ -16,6 +16,7 @@ const Headboard = ({refresh, setRefresh}) => {
         position: toast.POSITION.TOP_RIGHT,
         className: 'alertSuccess'
       });
+      setAlert(false)
     }
   }
 

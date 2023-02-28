@@ -178,7 +178,7 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
              </div>
              <div class="col">
              <h6>Fecha Teorica Contratacion FT</h6>
-               <p>{estudiante.FechaTeoricaContratacion}</p>
+               <p>{estudiante.FechaTeoricaContratacion.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3-$2-$1')}</p>
              </div>
              <div class="col">
              <h6>Salario FT</h6>
@@ -192,15 +192,15 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
              <div class="row align-items-start">
              <div class="col">
                <h6>Fecha De Inicio Trainee</h6>
-               <p>{estudiante.FechaInicioTrainer}</p>
+               <p>{estudiante.FechaInicioTrainer.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3-$2-$1')}</p>
              </div>
              <div class="col">
              <h6>Fecha De Facturacion</h6>
-               <p>{estudiante.FechaFacturacion}</p>
+               <p>{estudiante.FechaFacturacion.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3-$2-$1')}</p>
              </div>
              <div class="col">
              <h6>Fecha De Pago</h6>
-               <p>{estudiante.Fechacashin}</p>
+               <p>{estudiante.Fechacashin.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3-$2-$1')}</p>
              </div>
             
              </div>
