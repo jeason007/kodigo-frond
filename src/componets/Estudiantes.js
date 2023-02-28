@@ -3,7 +3,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Editar from "./Editar";
 
-const Estudiantes = ({ refresh, setRefresh }) => {
+
+
+
+const Estudiantes = ({ refresh, setRefresh  }) => {
   const endpoint = "http://127.0.0.1:8000/api";
   //asignamos un estado ..........
   const [estudiant, setEstudiant] = useState([]);
@@ -11,6 +14,10 @@ const Estudiantes = ({ refresh, setRefresh }) => {
   const [busqueda, setBusqueda] = useState("");
   const [id, setId] = useState("");
   const [modalEdit, setModalEdit] = useState(false);
+  
+  
+  
+  
 
   const busquedaCambio = (e) => {
     setBusqueda(e.target.value);
@@ -18,6 +25,7 @@ const Estudiantes = ({ refresh, setRefresh }) => {
   };
 
   const filtrar = (terminoBusqueda) => {
+    // eslint-disable-next-line array-callback-return
     let resultadoBusqueda = tablaEstu.filter((elemento) => {
       if (
         elemento.NombreEstudiante.toString()
@@ -36,16 +44,24 @@ const Estudiantes = ({ refresh, setRefresh }) => {
   //usamos useEffect para hacer una funcion asincrona....
   useEffect(() => {
     if (refresh) {
+      setRefresh();
       getAllEstudents();
-      setRefresh(false);
+    
+     
+
+     
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresh]);
+
   //hacemos una funcion donde se hara la consulta
   const getAllEstudents = async () => {
     const respuesta = await axios.get(`${endpoint}/kodigo`);
     setEstudiant(respuesta.data);
     setTablaEstu(respuesta.data);
+  
+    
+
   };
 
   const borrarEstudiantes = async (id) => {
@@ -55,6 +71,7 @@ const Estudiantes = ({ refresh, setRefresh }) => {
 
   return (
     <body className="bo">
+      
       <div className="buscador">
         <div class="input-group mb-3" id="inpu-conta">
           <span class="input-group-text" id="basic-addon1">
@@ -80,66 +97,116 @@ const Estudiantes = ({ refresh, setRefresh }) => {
         <>
           <div key={estudiante.id}>
             <div
-              class="btn btn-primary"
+              class="btn"
               data-bs-toggle="collapse"
               href={`#n${estudiante.id}`}
               role="button"
               aria-expanded="false"
               aria-controls="collapse"
               id="bot"
-              data-collapsible="accordion"
-            >
-              <span class="material-symbols-outlined">account_circle</span>{" "}
-              {estudiante.NombreEstudiante}
-              <div className="bootcamp">BootCamp : {estudiante.BootCamps}</div>
+              data-collapsible="accordion">
+              <span class="material-symbols-outlined" id="circle">person</span>
+              <h2 className="name">{estudiante.NombreEstudiante}</h2>
+              <h2 className="id">{estudiante.id}</h2>
+             
             </div>
 
             <div class="collapse" id={`n${estudiante.id}`}>
-              <div class="card card-body">
-                <div class="card">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                      <button
+             <div class="card card-body" id="card">
+              <div className="boto-edit">
+                     <button
                         type="button"
                         onClick={() => {
                           setId(estudiante.id);
                           setModalEdit(true);
                         }}
-                        class="btn btn-primary"
-                      >
-                        Actualizar
-                      </button>
-                      <button
+                        class="btn"
+                        id="boto-a"><span class="material-symbols-outlined" id="dele">update</span> &nbsp;Actualizar</button>
+
+                       <button
                         type="button"
                         onClick={() => borrarEstudiantes(estudiante.id)}
-                        class="btn btn-danger"
-                        id="act"
-                      >
-                        Eliminar
-                      </button>
-                    </li>
-                    <li class="list-group-item">
-                      <h5>Nombre Empresa</h5>
-                      <h6>{estudiante.Empresa}</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5>Fecha De Inicio</h5>
-                      <h6>{estudiante.FechaInicio}</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5>Fecha De Final</h5>
-                      <h6>{estudiante.FechaFinal}</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5>Fecha De Cobro Fee</h5>
-                      <h6>{estudiante.FechaFinal}</h6>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card-footer">
-                  <h5>Cantidad a Cancelar </h5>
-                  <h6>$ {estudiante.MontoCobrar}</h6>
-                </div>
+                        class="btn"
+                        id="boto-a"><span class="material-symbols-outlined" id="dele">delete</span> &nbsp;Eliminar</button>
+
+              </div><br/><br/>
+             <div class="container text-center">
+            {/*firts data component*/}
+             <div class="row align-items-start">
+             <div class="col">
+               <h6>Nombre Empresa</h6>
+               <p>{estudiante.Empresa}</p>
+             </div>
+             <div class="col">
+             <h6>Fecha Tiempo Trainee</h6>
+               <p> Meses {estudiante.FechaDuracionTrainer}</p>
+             </div>
+             <div class="col">
+             <h6>Duracion Termino De Pago</h6>
+               <p>Dia de mes {estudiante.duracionTerminosPago}</p> 
+             </div>
+             
+             </div>
+             {/*end...................*/}
+
+             {/*second data component*/}
+             <div class="row align-items-start">
+             <div class="col">
+               <h6>Bootcamp Cursado</h6>
+               <p>{estudiante.BootCamps}</p>
+             </div>
+             <div class="col">
+             <h6>Fecha Teorica Contratacion FT</h6>
+               <p>{estudiante.FechaTeoricaContratacion}</p>
+             </div>
+             <div class="col">
+             <h6>Salario FT</h6>
+               <p> $ {estudiante.SalarioFT}</p>
+             </div>
+             
+             </div>
+             {/*end...................*/}
+
+             {/*third data component*/}
+             <div class="row align-items-start">
+             <div class="col">
+               <h6>Fecha De Inicio Trainee</h6>
+               <p>{estudiante.FechaInicioTrainer}</p>
+             </div>
+             <div class="col">
+             <h6>Fecha De Facturacion</h6>
+               <p>{estudiante.FechaFacturacion}</p>
+             </div>
+             <div class="col">
+             <h6>Fecha De Pago</h6>
+               <p>{estudiante.Fechacashin}</p>
+             </div>
+            
+             </div>
+             {/*end...................*/}
+
+             {/*four data component*/}
+             <div class="row align-items-start">
+             <div class="col">
+             <h6>Fecha De Pago</h6>
+               <p>{estudiante.Fechacashin}</p>
+             </div>
+             <div class="col">
+             <h6>Facturado </h6>
+               <p>{estudiante.Facturado}</p> 
+             </div>
+             <div class="col">
+             <h6>NO Facturado</h6>
+               <p>{estudiante.noFacturado}</p>
+             </div>
+             
+             </div>
+             
+             {/*end...................*/}
+</div>
+               
+
+
               </div>
             </div>
           </div>
@@ -171,7 +238,7 @@ const Estudiantes = ({ refresh, setRefresh }) => {
               <div class="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  class="btn"
                   data-bs-dismiss="modal"
                 >
                   Close
@@ -191,6 +258,7 @@ const Estudiantes = ({ refresh, setRefresh }) => {
         id={id}
         setRefresh={setRefresh}
       />
+      
     </body>
   );
 };

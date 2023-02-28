@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
+//import axios from "axios";
 import ModalStore from "./ModalStore";
 
 
-const Cabeza = ({refresh, setRefresh}) => {
+const Headboard = ({refresh, setRefresh}) => {
   
   const [modalStore, setModalStore] = useState(false);
 
@@ -15,7 +15,8 @@ const Cabeza = ({refresh, setRefresh}) => {
         <button
           onClick={()=>{setModalStore(true)}}
           type="button"
-          class="btn btn-primary"
+          class="btn"
+          id="boto-m"
         >
           ingresar
         </button>
@@ -27,4 +28,4 @@ const Cabeza = ({refresh, setRefresh}) => {
   );
 };
 
-export default Cabeza;
+export default Headboard

@@ -63,6 +63,8 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
 
   useEffect(() => {
     edit();
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (
@@ -72,6 +74,9 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
       </Modal.Header>
       <Modal.Body>
         <form>
+        <div className="center">
+            <h4 className="h4-i">Nombre Del Estudiante </h4>
+          </div>
           <div class="input-group flex-nowrap">
             <input
               type="text"
@@ -82,6 +87,7 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
             />
           </div>
           <br />
+          <h4 className="h4-i">BootCamp Cursado </h4>
           <div class="input-group flex-nowrap">
             <input
               type="text"
@@ -92,6 +98,7 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
             />
           </div>
           <br />
+          <h4 className="h4-i">Nombre De La Empresa </h4>
           <div class="input-group flex-nowrap">
             <input
               type="text"
@@ -103,7 +110,7 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
           </div>
           <br />
           <div className="center">
-            <h6>Fecha Inicio Trainee </h6>
+            <h4 className="h4-i">Fecha Inicio Trainee </h4>
           </div>
           <div class="input-group flex-nowrap">
             <input
@@ -116,7 +123,7 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
           </div>
           <br />
           <div className="center">
-            <h6>Fecha Duracion Trainee</h6>
+            <h4 className="h4-i">Fecha Duracion Trainee (Meses)</h4>
           </div>
           <div class="input-group flex-nowrap">
             <input
@@ -129,7 +136,7 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
           </div>
           <br />
           <div className="center">
-            <h6>Fecha De Cobro Fee :</h6>
+            <h4 className="h4-i">Fecha De Cobro Fee :</h4>
           </div>
           <div class="input-group flex-nowrap">
             <input
@@ -143,7 +150,7 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
           </div>
           <br />
           <div className="center">
-            <h6>Fecha De Facturacion :</h6>
+            <h4 className="h4-i">Fecha De Facturacion :</h4>
           </div>
           <div class="input-group flex-nowrap">
             <input
@@ -156,8 +163,11 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
             />
           </div>
           <br />
+          <div className="center">
+            <h4 className="h4-i">Duracion Terminos de Pago</h4>
+          </div>
           <div class="input-group flex-nowrap">
-            <input
+          <input
               type="number"
               value={duracionTerminosPago}
               onChange={(e) => setDuracionTerminosPago(e.target.value)}
@@ -167,6 +177,9 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
             />
           </div>
           <br />
+          <div className="center">
+            <h4 className="h4-i">Salario FT</h4>
+          </div>
           <div class="input-group flex-nowrap">
             <input
               type="number"
@@ -178,6 +191,9 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
             />
           </div>
           <br />
+          <div className="center">
+            <h4 className="h4-i">Fecha De Pago</h4>
+          </div>
           <div class="input-group flex-nowrap">
             <input
               type="date"
@@ -189,6 +205,9 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
             />
           </div>
           <br />
+          <div className="center">
+            <h4 className="h4-i">Facturado</h4>
+          </div>
           <div class="input-group flex-nowrap">
             <input
               type="text"
@@ -200,6 +219,9 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
             />
           </div>
           <br />
+          <div className="center">
+            <h4 className="h4-i">Motivo No Facturado</h4>
+          </div>
           <div class="input-group flex-nowrap">
             <input
               type="text"
@@ -214,7 +236,7 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn"
               id="boto-m"
               onClick={() => {
                 setModal(false);
@@ -222,7 +244,7 @@ const Editar = ({ modal, setModal, id, setRefresh }) => {
             >
               Cerrar
             </button>
-            <button onClick={update} class="btn btn-primary" id="boto-m">
+            <button onClick={update} class="btn" id="boto-m">
               Guardar
             </button>
           </div>

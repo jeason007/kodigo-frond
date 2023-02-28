@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import "../../src/App.css";
 
 const endpoint = "http://127.0.0.1:8000/api/kodigo";
 
@@ -79,7 +80,7 @@ const ModalStore = ({ modal, setModal, setRefresh }) => {
           </div>
           <br />
           <div className="center">
-            <h6>Fecha Inicio Trainee </h6>
+            <h4 className="h4-i">Fecha Inicio Trainee </h4>
           </div>
           <div class="input-group flex-nowrap">
             <input
@@ -92,7 +93,7 @@ const ModalStore = ({ modal, setModal, setRefresh }) => {
           </div>
           <br />
           <div className="center">
-            <h6>Fecha Duracion Trainee</h6>
+            <h4 className="h4-i">Fecha Duracion Trainee</h4>
           </div>
           <div class="input-group flex-nowrap">
             <input
@@ -105,7 +106,7 @@ const ModalStore = ({ modal, setModal, setRefresh }) => {
           </div>
           <br />
           <div className="center">
-            <h6>Fecha De Cobro Fee :</h6>
+            <h4 className="h4-i">Fecha De Cobro Fee :</h4>
           </div>
           <div class="input-group flex-nowrap">
             <input
@@ -119,7 +120,7 @@ const ModalStore = ({ modal, setModal, setRefresh }) => {
           </div>
           <br />
           <div className="center">
-            <h6>Fecha De Facturacion :</h6>
+            <h4 className="h4-i">Fecha De Facturacion :</h4>
           </div>
           <div class="input-group flex-nowrap">
             <input
@@ -153,7 +154,10 @@ const ModalStore = ({ modal, setModal, setRefresh }) => {
               aria-describedby="addon-wrapping"
             />
           </div>
-          <br />
+          <br/>
+          <div className="center">
+            <h4 className="h4-i">Fecha De Pago </h4>
+          </div>
           <div class="input-group flex-nowrap">
             <input
               type="date"
@@ -164,33 +168,29 @@ const ModalStore = ({ modal, setModal, setRefresh }) => {
               aria-describedby="addon-wrapping"
             />
           </div>
-          <br />
+          <br/>
           <div class="input-group flex-nowrap">
-            <input
-              type="text"
-              value={Facturado}
-              onChange={(e) => setFacturado(e.target.value)}
-              class="form-control"
-              placeholder="factura n/s"
-              aria-describedby="addon-wrapping"
-            />
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" value={Facturado} onChange={(e) => setFacturado(e.target.value)}>
+          <option selected>Facturado seleccione</option>
+          <option value="facturado">Facturado</option>
+          <option value="noFacturado">no facturado</option>
+          </select><br/>
           </div>
           <br />
           <div class="input-group flex-nowrap">
-            <input
-              type="text"
-              value={noFacturado}
-              onChange={(e) => setnoFacturado(e.target.value)}
-              class="form-control"
-              placeholder="motivo no facturado"
-              aria-describedby="addon-wrapping"
-            />
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" value={noFacturado} onChange={(e) => setnoFacturado(e.target.value)}>
+          <option selected>Motivo no facturado selecione</option>
+          <option value="Facturado">Facturado</option>
+          <option value="No Contratado">No Contratado</option>
+          <option value="Abandono">Abandono</option>
+          <option value="Salario pediente">Salario pediente</option>
+          </select><br/>
           </div>
           <br />
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn"
               id="boto-m"
               onClick={() => {
                 setModal(false);
@@ -198,7 +198,7 @@ const ModalStore = ({ modal, setModal, setRefresh }) => {
             >
               Cerrar
             </button>
-            <button onClick={store} class="btn btn-primary" id="boto-m">
+            <button onClick={store} class="btn" id="boto-m">
               Guardar
             </button>
           </div>

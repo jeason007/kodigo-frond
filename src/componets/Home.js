@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import Cabeza from "./Cabeza";
+import '../../src/App.css';
 import Estudiantes from "./Estudiantes";
+import Headboard from "./HeadBoard";
+
 
 const Home = () => {
   const [refresh, setRefresh] = useState(true);
-
-  return (
+  
+   return (
     <div className="App">
-      <Cabeza refresh={refresh} setRefresh={setRefresh} />
-      <div className="conta">
-        <div className="">
-          <Estudiantes refresh={refresh} setRefresh={setRefresh} />
-        </div>
-      </div>
-      <div className="footer"></div>
+    <Headboard refresh={refresh} setRefresh={setRefresh}/>
+    <div className="conta">
+    <div className="">
+    <Estudiantes refresh={refresh} setRefresh={setRefresh}/>
+   
+    </div>
+    </div>
+    <div className="footer"></div>
     </div>
   );
 };
