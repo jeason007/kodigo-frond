@@ -17,7 +17,7 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
   const mostrarAlert = () => {
     if(alert){
       toast.dark("Se Modifico Correctamente !", {
-        position: toast.POSITION.TOP_RIGHT,
+        position: toast.POSITION.TOP_LEFT,
         className: 'alertSuccess'
       });
     }
@@ -58,6 +58,8 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
 
   useEffect(() => {
     mostrarAlert()
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [alert]);
 
   //hacemos una funcion donde se hara la consulta
@@ -73,31 +75,31 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
     .then(response => {
       if(response.status === 200){
         toast.dark("Se Elimino Correctamente !", {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.TOP_LEFT,
         });
         getAllEstudents();
       }else{
         toast.error("No Elimino Vuelva a intentarlo...", {
-          position: toast.POSITION.TOP_RIGHT
+          position: toast.POSITION.TOP_LEFT
           // className: 'alertSuccess'
         });
       }
     })
     .catch(error => {
       toast.error("No Elimino Vuelva a intentarlo...", {
-        position: toast.POSITION.TOP_RIGHT
+        position: toast.POSITION.TOP_LEFT
       });
     })
   };
 
   return (
-    <body className="bo">
+    <div className="bo">
       <ToastContainer />
       <div className="buscador">
-        <div class="input-group mb-3" id="inpu-conta">
-          <span class="input-group-text" id="basic-addon1">
-            <span class="material-icons">
-              <span class="material-icons" id="ico">
+        <div className="input-group mb-3" id="inpu-conta">
+          <span className="input-group-text" id="basic-addon1">
+            <span className="material-icons">
+              <span className="material-icons" id="ico">
                 person_search
               </span>
             </span>
@@ -105,7 +107,7 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
           <input
             type="text"
             value={busqueda}
-            class="form-control"
+            className="form-control"
             placeholder="Buscar Alumno......"
             aria-label="Example text with button addon"
             id="inpu"
@@ -114,11 +116,14 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
           />
         </div>
       </div>
-      {estudiant.map((estudiante) => (
-        <>
+      <div className="bo"></div>
+      {
+        estudiant.length !== 0 ?
+       estudiant.map((estudiante) => (
+        
           <div key={estudiante.id}>
             <div
-              class="btn"
+              className="btn"
               data-bs-toggle="collapse"
               href={`#n${estudiante.id}`}
               role="button"
@@ -126,14 +131,14 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
               aria-controls="collapse"
               id="bot"
               data-collapsible="accordion">
-              <span class="material-symbols-outlined" id="circle">person</span>
+              <span className="material-symbols-outlined" id="circle">person</span>
               <h2 className="name">{estudiante.NombreEstudiante}</h2>
               <h2 className="id">{estudiante.id}</h2>
              
             </div>
 
-            <div class="collapse" id={`n${estudiante.id}`}>
-             <div class="card card-body" id="card">
+            <div className="collapse" id={`n${estudiante.id}`}>
+             <div className="card card-body" id="card">
               <div className="boto-edit">
                      <button
                         type="button"
@@ -141,28 +146,28 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
                           setId(estudiante.id);
                           setModalEdit(true);
                         }}
-                        class="btn"
-                        id="boto-a"><span class="material-symbols-outlined" id="dele">update</span> &nbsp;Actualizar</button>
+                        className="btn"
+                        id="boto-a"><span className="material-symbols-outlined" id="dele">update</span> &nbsp;Actualizar</button>
 
                        <button
                         type="button"
                         onClick={() => borrarEstudiantes(estudiante.id)}
-                        class="btn"
-                        id="boto-a"><span class="material-symbols-outlined" id="dele">delete</span> &nbsp;Eliminar</button>
+                        className="btn"
+                        id="boto-a"><span className="material-symbols-outlined" id="dele">delete</span> &nbsp;Eliminar</button>
 
               </div><br/><br/>
-             <div class="container text-center">
+             <div className="container text-center">
             {/*firts data component*/}
-             <div class="row align-items-start">
-             <div class="col">
-               <h6>Nombre Empresa</h6>
-               <p>{estudiante.Empresa}</p>
+             <div className="row align-items-start">
+             <div className="col">
+               <h6>Nombre Estudiante</h6>
+               <p>{estudiante.NombreEstudiante}</p>
              </div>
-             <div class="col">
+             <div className="col">
              <h6>Fecha Tiempo Trainee</h6>
                <p> Meses {estudiante.FechaDuracionTrainer}</p>
              </div>
-             <div class="col">
+             <div className="col">
              <h6>Duracion Termino De Pago</h6>
                <p>Dia de mes {estudiante.duracionTerminosPago}</p> 
              </div>
@@ -171,16 +176,16 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
              {/*end...................*/}
 
              {/*second data component*/}
-             <div class="row align-items-start">
-             <div class="col">
-               <h6>Bootcamp Cursado</h6>
-               <p>{estudiante.BootCamps}</p>
+             <div className="row align-items-start">
+             <div className="col">
+               <h6>Nombre  De La Empresa</h6>
+               <p>{estudiante.Empresa}</p>
              </div>
-             <div class="col">
+             <div className="col">
              <h6>Fecha Teorica Contratacion FT</h6>
                <p>{estudiante.FechaTeoricaContratacion.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3-$2-$1')}</p>
              </div>
-             <div class="col">
+             <div className="col">
              <h6>Salario FT</h6>
                <p> $ {estudiante.SalarioFT}</p>
              </div>
@@ -189,16 +194,16 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
              {/*end...................*/}
 
              {/*third data component*/}
-             <div class="row align-items-start">
-             <div class="col">
+             <div className="row align-items-start">
+             <div className="col">
                <h6>Fecha De Inicio Trainee</h6>
                <p>{estudiante.FechaInicioTrainer.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3-$2-$1')}</p>
              </div>
-             <div class="col">
+             <div className="col">
              <h6>Fecha De Facturacion</h6>
                <p>{estudiante.FechaFacturacion.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3-$2-$1')}</p>
              </div>
-             <div class="col">
+             <div className="col">
              <h6>Fecha De Pago</h6>
                <p>{estudiante.Fechacashin.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3-$2-$1')}</p>
              </div>
@@ -207,16 +212,16 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
              {/*end...................*/}
 
              {/*four data component*/}
-             <div class="row align-items-start">
-             <div class="col">
-             <h6>Fecha De Pago</h6>
-               <p>{estudiante.Fechacashin}</p>
+             <div className="row align-items-start">
+             <div className="col">
+             <h6>Boot Camp Cursado</h6>
+               <p>{estudiante.BootCamps}</p>
              </div>
-             <div class="col">
+             <div className="col">
              <h6>Facturado </h6>
                <p>{estudiante.Facturado}</p> 
              </div>
-             <div class="col">
+             <div className="col">
              <h6>NO Facturado</h6>
                <p>{estudiante.noFacturado}</p>
              </div>
@@ -231,8 +236,12 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
               </div>
             </div>
           </div>
-        </>
-      ))}
+        
+      )):
+     <div className="erro"><h1 className="err"><span className="material-symbols-outlined" id="erro-circle">
+     error_circle_rounded
+     </span>  <br/> Estudiante No Registrado</h1></div>
+    }
 
       <Editar
         modal={modalEdit}
@@ -242,7 +251,7 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
         setAlert={setAlert}
       />
       
-    </body>
+    </div>
   );
 };
 

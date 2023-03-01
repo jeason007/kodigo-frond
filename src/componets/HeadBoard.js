@@ -13,7 +13,7 @@ const Headboard = ({refresh, setRefresh}) => {
   const mostrarAlert = () => {
     if(alert){
       toast.dark("Se agrego Corectamente !", {
-        position: toast.POSITION.TOP_RIGHT,
+        position: toast.POSITION.TOP_LEFT,
         className: 'alertSuccess'
       });
       setAlert(false)
@@ -22,6 +22,8 @@ const Headboard = ({refresh, setRefresh}) => {
 
   useEffect(() => {
     mostrarAlert();
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [alert]);
 
   return (
@@ -29,14 +31,8 @@ const Headboard = ({refresh, setRefresh}) => {
       <h3 className="kodigo">Kodigo Empleabilidad Panel</h3>
       <div className="logo"></div>
       <div className="boton">
-        <button
-          onClick={()=>{setModalStore(true)}}
-          type="button"
-          class="btn"
-          id="boto-m"
-        >
-          ingresar
-        </button>
+        <button onClick={()=>{setModalStore(true)}} type="button" className="btn"id="boto-m">Ingresar</button>
+        <a href="http://localhost:8000/api/excel"  type="button" className="btn" id="boto-m">Exportar</a>
       </div>
       
       <ModalStore modal={modalStore} setModal={setModalStore} setRefresh={setRefresh} setAlert={setAlert}/>

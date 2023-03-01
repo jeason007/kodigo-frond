@@ -78,34 +78,34 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
         <div className="center">
             <h4 className="h4-i">Nombre Del Estudiante </h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="text"
               value={NombreEstudiante}
               onChange={(e) => setNombreEstudiante(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Nombre Del Estudiante"
             />
           </div>
           <br />
           <h4 className="h4-i">BootCamp Cursado </h4>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="text"
               value={BootCamps}
               onChange={(e) => setBootCamps(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="BootCamps"
             />
           </div>
           <br />
           <h4 className="h4-i">Nombre De La Empresa </h4>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="text"
               value={Empresa}
               onChange={(e) => setEmpresa(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Empresa Contratatante"
             />
           </div>
@@ -113,12 +113,12 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Fecha Inicio Trainee </h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="date"
               value={FechaInicioTrainer}
               onChange={(e) => setFechaInicioTrainer(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Fecha Inicio Trainee"
             />
           </div>
@@ -126,12 +126,12 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Fecha Duracion Trainee (Meses)</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="number"
               value={FechaDuracionTrainer}
               onChange={(e) => setFechaDuracionTrainer(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Fecha Duracion Trainee(meses)"
             />
           </div>
@@ -139,12 +139,12 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Fecha De Cobro Fee :</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="date"
               value={FechaTeoricaContratacion}
               onChange={(e) => setFechaTeoricaContratacion(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Fecha teorica contratacion FT"
               aria-describedby="addon-wrapping"
             />
@@ -153,12 +153,12 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Fecha De Facturacion :</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="date"
               value={FechaFacturacion}
               onChange={(e) => setFechaFacturacion(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Fecha de facturacion"
               aria-describedby="addon-wrapping"
             />
@@ -167,12 +167,12 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Duracion Terminos de Pago</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
           <input
               type="number"
               value={duracionTerminosPago}
               onChange={(e) => setDuracionTerminosPago(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Duracion terminos De Pago"
               aria-describedby="addon-wrapping"
             />
@@ -181,12 +181,12 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Salario FT</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="number"
               value={SalarioFT}
               onChange={(e) => setSalarioFT(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Salario FT"
               aria-describedby="addon-wrapping"
             />
@@ -195,12 +195,12 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Fecha De Pago</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="date"
               value={Fechacashin}
               onChange={(e) => setFechacashin(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Fecha cash in"
               aria-describedby="addon-wrapping"
             />
@@ -209,12 +209,12 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Facturado</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="text"
               value={Facturado}
               onChange={(e) => setFacturado(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="factura n/s"
               aria-describedby="addon-wrapping"
             />
@@ -223,21 +223,21 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Motivo No Facturado</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="text"
               value={noFacturado}
               onChange={(e) => setnoFacturado(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="motivo no facturado"
               aria-describedby="addon-wrapping"
             />
           </div>
           <br />
-          <div class="modal-footer">
+          <div className="modal-footer">
             <button
               type="button"
-              class="btn"
+              className="btn"
               id="boto-m"
               onClick={() => {
                 setModal(false);
@@ -245,7 +245,7 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
             >
               Cerrar
             </button>
-            <button onClick={update} class="btn" id="boto-m">
+            <button onClick={update} className="btn" id="boto-m">
               Guardar
             </button>
           </div>

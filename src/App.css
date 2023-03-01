@@ -5,8 +5,10 @@
   font-size: 13px;
 }
 html{background-color: #2F0743;}
+.erro{width: 100%; height: 100%; text-align: center; }
+.err{background-color:rgba(0,0,0,0.6); padding: 20px 20px; color:#2F0743; border-radius: 10px; border: 1px dotted #2F0743; margin-top: 25px; font-size: 20px; box-shadow: 1px 1px 3px black,-1px -1px 3px black;}
 .App{background-color: #2F0743; width: 100%; height: 100%; padding: 5px 5px;}
-#boto-m{background-color: #2F0743;color: whitesmoke; padding: 7px 10px; margin-left: 5px; box-shadow: 1px 1px 2px black,1px 1px 2px black;}
+#boto-m{background-color: #2F0743;color: whitesmoke; padding: 8px 10px; margin-left: 5px; box-shadow: 1px 1px 2px black,1px 1px 2px black;}
 #boto-m:hover{cursor: pointer; box-shadow: 1px 1px 2px #620c8d,-1px -1px 2px #620c8d; background-color: #d2bbe6af; color: #620c8d; border:1px solid #2F0743 }
 
 #boto-a{background-color: #2F0743;color: whitesmoke;   box-shadow: 1px 1px 2px  whitesmoke,-1px -1px 2px whitesmoke;  padding:8px 30px; padding-right: 10px; margin-left: 10px; float: right; position: relative; }
@@ -50,7 +52,7 @@ html{background-color: #2F0743;}
   width: 80px;
   height: 80px;
   position: absolute;
-  top: 25px;
+  bottom: 20px;
   left: 5px;
   border-radius: 5px;
   background-image: url(../src/img/kofigoim.png);
@@ -60,7 +62,7 @@ html{background-color: #2F0743;}
 
 .kodigo {
   position: absolute;
-  top: 65px;
+  top: 70px;
   left: 100px;
 }
 
@@ -76,13 +78,14 @@ html{background-color: #2F0743;}
 
 .boton {
   position: absolute;
-  bottom: 10px;
+  top: 25px;
   right: 5px;
-  width: 120px;
+  width: 200px;
   height: 50px;
   background-color: none;
   padding: 5px 5px;
 }
+#erro-circle{ font-size: 70px; color: #2F0743; text-shadow: 1px 1px 2px #af39d7,-1px -1px 2px #af39d7}
 
 .center {
   text-align: left;

@@ -61,32 +61,32 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
       </Modal.Header>
       <Modal.Body>
         <form>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="text"
               value={NombreEstudiante}
               onChange={(e) => setNombreEstudiante(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Nombre Del Estudiante"
             />
           </div>
           <br />
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="text"
               value={BootCamps}
               onChange={(e) => setBootCamps(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="BootCamps"
             />
           </div>
           <br />
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="text"
               value={Empresa}
               onChange={(e) => setEmpresa(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Empresa Contratatante"
             />
           </div>
@@ -99,7 +99,7 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
               type="date"
               value={FechaInicioTrainer}
               onChange={(e) => setFechaInicioTrainer(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Fecha Inicio Trainee"
             />
           </div>
@@ -107,12 +107,12 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Fecha Duracion Trainee</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="number"
               value={FechaDuracionTrainer}
               onChange={(e) => setFechaDuracionTrainer(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Fecha Duracion Trainee(meses)"
             />
           </div>
@@ -120,12 +120,12 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Fecha De Cobro Fee :</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="date"
               value={FechaTeoricaContratacion}
               onChange={(e) => setFechaTeoricaContratacion(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Fecha teorica contratacion FT"
               aria-describedby="addon-wrapping"
             />
@@ -134,18 +134,18 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Fecha De Facturacion :</h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="date"
               value={FechaFacturacion}
               onChange={(e) => setFechaFacturacion(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Fecha de facturacion"
               aria-describedby="addon-wrapping"
             />
           </div>
           <br />
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="number"
               value={duracionTerminosPago}
@@ -156,12 +156,12 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
             />
           </div>
           <br />
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="number"
               value={SalarioFT}
               onChange={(e) => setSalarioFT(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Salario FT"
               aria-describedby="addon-wrapping"
             />
@@ -170,27 +170,27 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
           <div className="center">
             <h4 className="h4-i">Fecha De Pago </h4>
           </div>
-          <div class="input-group flex-nowrap">
+          <div className="input-group flex-nowrap">
             <input
               type="date"
               value={Fechacashin}
               onChange={(e) => setFechacashin(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Fecha cash in"
               aria-describedby="addon-wrapping"
             />
           </div>
           <br/>
-          <div class="input-group flex-nowrap">
-          <select class="form-select form-select-sm" aria-label=".form-select-sm example" value={Facturado} onChange={(e) => setFacturado(e.target.value)}>
+          <div className="input-group flex-nowrap">
+          <select className="form-select form-select-sm" aria-label=".form-select-sm example" value={Facturado} onChange={(e) => setFacturado(e.target.value)}>
           <option selected>Facturado seleccione</option>
           <option value="facturado">Facturado</option>
           <option value="noFacturado">no facturado</option>
           </select><br/>
           </div>
           <br />
-          <div class="input-group flex-nowrap">
-          <select class="form-select form-select-sm" aria-label=".form-select-sm example" value={noFacturado} onChange={(e) => setnoFacturado(e.target.value)}>
+          <div className="input-group flex-nowrap">
+          <select className="form-select form-select-sm" aria-label=".form-select-sm example" value={noFacturado} onChange={(e) => setnoFacturado(e.target.value)}>
           <option selected>Motivo no facturado selecione</option>
           <option value="Facturado">Facturado</option>
           <option value="No Contratado">No Contratado</option>
@@ -199,10 +199,10 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
           </select><br/>
           </div>
           <br />
-          <div class="modal-footer">
+          <div className="modal-footer">
             <button
               type="button"
-              class="btn"
+              className="btn"
               id="boto-m"
               onClick={() => {
                 setModal(false);
@@ -210,7 +210,7 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
             >
               Cerrar
             </button>
-            <button onClick={store} class="btn" id="boto-m">
+            <button onClick={store} className="btn" id="boto-m">
               Guardar
             </button>
           </div>
