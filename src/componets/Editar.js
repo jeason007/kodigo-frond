@@ -62,9 +62,24 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
       })
   };
 
+  const reset = () => {
+    setNombreEstudiante('');
+    setBootCamps('');
+    setEmpresa('');
+    setFechaInicioTrainer('');
+    setFechaDuracionTrainer('');
+    setFechaTeoricaContratacion('');
+    setFechaFacturacion('');
+    setDuracionTerminosPago('');
+    setSalarioFT('');
+    setFechacashin('');
+    setFacturado('');
+    setnoFacturado('');
+  }
+
   useEffect(() => {
+    reset();
     edit();
-    
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
@@ -72,6 +87,7 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
     <Modal show={modal} setModal={false}>
       <Modal.Header>
         <Modal.Title>Informacion Estudiante</Modal.Title>
+        <div><button onClick={()=>setModal(false)}>X</button></div>
       </Modal.Header>
       <Modal.Body>
         <form>

@@ -119,13 +119,13 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
       <div className="bo"></div>
       {
         estudiant.length !== 0 ?
-       estudiant.map((estudiante) => (
+       estudiant.map((estudiante, index) => (
         
-          <div key={estudiante.id}>
+          <div key={index+1}>
             <div
               className="btn"
               data-bs-toggle="collapse"
-              href={`#n${estudiante.id}`}
+              href={`#n${index+1}`}
               role="button"
               aria-expanded="false"
               aria-controls="collapse"
@@ -133,11 +133,11 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
               data-collapsible="accordion">
               <span className="material-symbols-outlined" id="circle">person</span>
               <h2 className="name">{estudiante.NombreEstudiante}</h2>
-              <h2 className="id">{estudiante.id}</h2>
+              <h2 className="id">{index+1}</h2>
              
             </div>
 
-            <div className="collapse" id={`n${estudiante.id}`}>
+            <div className="collapse" id={`n${index+1}`}>
              <div className="card card-body" id="card">
               <div className="boto-edit">
                      <button
@@ -236,7 +236,6 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
               </div>
             </div>
           </div>
-        
       )):
      <div className="erro"><h1 className="err"><span className="material-symbols-outlined" id="erro-circle">
      error_circle_rounded

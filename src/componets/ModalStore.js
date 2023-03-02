@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import "../../src/App.css";
 
@@ -41,7 +41,6 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
         if(response.status === 200){
 
           setRefresh(true);
-        
           setModal(false);
           setAlert(true);
         }
@@ -54,10 +53,31 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
       console.log(err);
     }
   };
+
+  const reset = () => {
+    setNombreEstudiante('');
+    setBootCamps('');
+    setEmpresa('');
+    setFechaInicioTrainer('');
+    setFechaDuracionTrainer('');
+    setFechaTeoricaContratacion('');
+    setFechaFacturacion('');
+    setDuracionTerminosPago('');
+    setSalarioFT('');
+    setFechacashin('');
+    setFacturado('');
+    setnoFacturado('');
+  }
+
+
+  useEffect(() => {
+    reset();
+  }, [modal]);
   return (
     <Modal show={modal} setModal={false}>
       <Modal.Header>
         <Modal.Title>Informacion Estudiante</Modal.Title>
+        <div><button onClick={()=>setModal(false)}>X</button></div>
       </Modal.Header>
       <Modal.Body>
         <form>
