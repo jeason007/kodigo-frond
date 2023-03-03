@@ -116,6 +116,7 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
           />
         </div>
       </div>
+     
       <div className="bo"></div>
       {
         estudiant.length !== 0 ?
@@ -140,6 +141,9 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
             <div className="collapse" id={`n${index+1}`}>
              <div className="card card-body" id="card">
               <div className="boto-edit">
+                <div className="estatus">
+                  Estado : {estudiante.estado}
+                </div>
                      <button
                         type="button"
                         onClick={() => {
@@ -239,8 +243,12 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
       )):
      <div className="erro"><h1 className="err"><span className="material-symbols-outlined" id="erro-circle">
      error_circle_rounded
-     </span>  <br/> Estudiante No Registrado</h1></div>
+     </span> &nbsp; &nbsp;Estudiante No Registrado</h1><br/><br/>
+   
+     
+     </div>
     }
+  
 
       <Editar
         modal={modalEdit}

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
@@ -15,6 +16,8 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
   const [Fechacashin, setFechacashin] = useState("");
   const [Facturado, setFacturado] = useState("");
   const [noFacturado, setnoFacturado] = useState("");
+  const [estado, setEstado] = useState("");
+  
 
   const edit = async () => {
     await axios
@@ -33,6 +36,7 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
         setFechacashin(response.data.Fechacashin);
         setFacturado(response.data.Facturado);
         setnoFacturado(response.data.noFacturado);
+        setEstado(response.data.estado);
       });
   };
 
@@ -51,6 +55,7 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
         Fechacashin: Fechacashin,
         Facturado: Facturado,
         noFacturado: noFacturado,
+        estado: estado
       })
       .then((response) => {
         setRefresh(true);
@@ -87,7 +92,7 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
     <Modal show={modal} setModal={false}>
       <Modal.Header>
         <Modal.Title>Informacion Estudiante</Modal.Title>
-        <div><button onClick={()=>setModal(false)}>X</button></div>
+        <div><a href="#" onClick={()=>setModal(false)}><span class="material-symbols-outlined" id="modal-x">close</span></a></div>
       </Modal.Header>
       <Modal.Body>
         <form>
@@ -153,20 +158,6 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           </div>
           <br />
           <div className="center">
-            <h4 className="h4-i">Fecha De Cobro Fee :</h4>
-          </div>
-          <div className="input-group flex-nowrap">
-            <input
-              type="date"
-              value={FechaTeoricaContratacion}
-              onChange={(e) => setFechaTeoricaContratacion(e.target.value)}
-              className="form-control"
-              placeholder="Fecha teorica contratacion FT"
-              aria-describedby="addon-wrapping"
-            />
-          </div>
-          <br />
-          <div className="center">
             <h4 className="h4-i">Fecha De Facturacion :</h4>
           </div>
           <div className="input-group flex-nowrap">
@@ -223,33 +214,38 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           </div>
           <br />
           <div className="center">
-            <h4 className="h4-i">Facturado</h4>
+            <h4 className="h4-i">Estado Facturado</h4>
           </div>
           <div className="input-group flex-nowrap">
-            <input
-              type="text"
-              value={Facturado}
-              onChange={(e) => setFacturado(e.target.value)}
-              className="form-control"
-              placeholder="factura n/s"
-              aria-describedby="addon-wrapping"
-            />
+          <select className="form-select form-select-sm" aria-label=".form-select-sm example" value={Facturado} onChange={(e) => setFacturado(e.target.value)}>
+          <option value="Facturado">Facturado</option>
+          <option value="No facturado">No facturado</option>
+          </select><br/>
           </div>
           <br />
           <div className="center">
             <h4 className="h4-i">Motivo No Facturado</h4>
           </div>
           <div className="input-group flex-nowrap">
-            <input
-              type="text"
-              value={noFacturado}
-              onChange={(e) => setnoFacturado(e.target.value)}
-              className="form-control"
-              placeholder="motivo no facturado"
-              aria-describedby="addon-wrapping"
-            />
+          <select className="form-select form-select-sm" aria-label=".form-select-sm example" value={noFacturado} onChange={(e) => setnoFacturado(e.target.value)}>
+          <option value="Facturado">Facturado</option>
+          <option value="No facturado">No facturado</option>
+          <option value="Abandono">Abandono</option>
+          <option value="Saldo Pendiente">Saldo Pendiente</option>
+          </select><br/>
           </div>
           <br />
+          <div className="center">
+            <h4 className="h4-i">Estado del estudiante</h4>
+          </div>
+          <div className="input-group flex-nowrap">
+          <select className="form-select form-select-sm" aria-label=".form-select-sm example" value={estado} onChange={(e) => setEstado(e.target.value)}>
+          <option value="Activo">Activo</option>
+          <option value="Inactivo">Inactivo</option>
+          </select><br/>
+          </div>
+          
+          
           <div className="modal-footer">
             <button
               type="button"

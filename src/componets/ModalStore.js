@@ -77,7 +77,7 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
     <Modal show={modal} setModal={false}>
       <Modal.Header>
         <Modal.Title>Informacion Estudiante</Modal.Title>
-        <div><button onClick={()=>setModal(false)}>X</button></div>
+        <div><a href="#" onClick={()=>setModal(false)}><span class="material-symbols-outlined" id="modal-x">close</span></a></div>
       </Modal.Header>
       <Modal.Body>
         <form>
@@ -137,20 +137,7 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
             />
           </div>
           <br />
-          <div className="center">
-            <h4 className="h4-i">Fecha De Cobro Fee :</h4>
-          </div>
-          <div className="input-group flex-nowrap">
-            <input
-              type="date"
-              value={FechaTeoricaContratacion}
-              onChange={(e) => setFechaTeoricaContratacion(e.target.value)}
-              className="form-control"
-              placeholder="Fecha teorica contratacion FT"
-              aria-describedby="addon-wrapping"
-            />
-          </div>
-          <br />
+          
           <div className="center">
             <h4 className="h4-i">Fecha De Facturacion :</h4>
           </div>
@@ -187,7 +174,7 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
             />
           </div>
           <br/>
-          <div className="center">
+          {/* <div className="center">
             <h4 className="h4-i">Fecha De Pago </h4>
           </div>
           <div className="input-group flex-nowrap">
@@ -199,7 +186,9 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
               placeholder="Fecha cash in"
               aria-describedby="addon-wrapping"
             />
+            
           </div>
+          */}
           <br/>
           <div className="input-group flex-nowrap">
           <select className="form-select form-select-sm" aria-label=".form-select-sm example" value={Facturado} onChange={(e) => setFacturado(e.target.value)}>

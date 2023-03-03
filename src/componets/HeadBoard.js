@@ -30,9 +30,11 @@ const Headboard = ({refresh, setRefresh}) => {
     <div className="header">
       <h3 className="kodigo">Kodigo Empleabilidad Panel</h3>
       <div className="logo"></div>
+      {/*<p onClick={()=>{setRefresh(true)}}  id="boton-refresh"><span class="material-symbols-outlined">autorenew</span></p>*/}
       <div className="boton">
         <button onClick={()=>{setModalStore(true)}} type="button" className="btn"id="boto-m">Ingresar</button>
         <a href="http://localhost:8000/api/excel"  type="button" className="btn" id="boto-m">Exportar</a>
+        
       </div>
       
       <ModalStore modal={modalStore} setModal={setModalStore} setRefresh={setRefresh} setAlert={setAlert}/>
