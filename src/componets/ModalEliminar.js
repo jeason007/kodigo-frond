@@ -1,7 +1,6 @@
 import React from 'react';
-import { ModalBody } from 'react-bootstrap';
 import Modal from "react-bootstrap/Modal";
-import { toast, ToastContainer } from 'react-toastify';
+ import { toast} from 'react-toastify';
 import axios from "axios";
 
 const endpoint = "http://127.0.0.1:8000/api";
@@ -38,8 +37,8 @@ const ModalEliminar = ({modal, setModal, id, setRefresh}) => {
         </Modal.Header>
         <Modal.Body>
           <div className='text-center'>
-            <button id="boto-m" onClick={()=>setModal(false)}>Cancelar</button>
-            <button id="boto-m" onClick={borrarEstudiantes}>Eliminar</button>
+            <button className='btn' id="boto-m"  onClick={()=>setModal(false)}>Cancelar</button>
+            <button  className='btn' id="boto-m" onClick={borrarEstudiantes}>Eliminar</button>
           </div>
         </Modal.Body>
     </Modal>
