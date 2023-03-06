@@ -236,7 +236,7 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
           </div>
           <br />
           <div className="center">
-            <h4 className="h4-i">Estado del estudiante</h4>
+            <h4 className="h4-i">Estado del estudiante para recibir notificaciones..</h4>
           </div>
           <div className="input-group flex-nowrap">
           <select className="form-select form-select-sm" aria-label=".form-select-sm example" value={estado} onChange={(e) => setEstado(e.target.value)}>

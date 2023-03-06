@@ -34,12 +34,12 @@ const ModalEliminar = ({modal, setModal, id, setRefresh}) => {
   return (
     <Modal show={modal} onHide={()=>setModal(false)}>
         <Modal.Header>
-            ¿Deseas Eliminar este Estudiante?
+            ¿Deseas Eliminar este Estudiante? El Estudiante Se Eliminara permanentemente......
         </Modal.Header>
         <Modal.Body>
           <div className='text-center'>
-            <button className='btn' onClick={()=>setModal(false)}>Cancelar</button>
-            <button className='btn btn-danger' onClick={borrarEstudiantes}>Eliminar</button>
+            <button id="boto-m" onClick={()=>setModal(false)}>Cancelar</button>
+            <button id="boto-m" onClick={borrarEstudiantes}>Eliminar</button>
           </div>
         </Modal.Body>
     </Modal>
