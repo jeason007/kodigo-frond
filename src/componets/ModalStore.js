@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
