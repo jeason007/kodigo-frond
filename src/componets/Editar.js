@@ -89,10 +89,10 @@ const Editar = ({ modal, setModal, id, setRefresh, setAlert }) => {
   }, [id]);
 
   return (
-    <Modal show={modal} setModal={false}>
+    <Modal show={modal} onHide={()=>setModal(false)}>
       <Modal.Header>
         <Modal.Title>Informacion Estudiante</Modal.Title>
-        <div><a href="#" onClick={()=>setModal(false)}><span class="material-symbols-outlined" id="modal-x">close</span></a></div>
+        <div onClick={()=>setModal(false)}><span class="material-symbols-outlined" id="modal-x">close</span></div>
       </Modal.Header>
       <Modal.Body>
         <form>

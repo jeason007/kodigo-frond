@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Editar from "./Editar";
 import { toast, ToastContainer } from 'react-toastify';
+import ModalEliminar from "./ModalEliminar";
 
 const Estudiantes = ({ refresh, setRefresh  }) => {
   const endpoint = "http://127.0.0.1:8000/api";
@@ -13,6 +14,7 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
   const [id, setId] = useState("");
   const [modalEdit, setModalEdit] = useState(false);
   const [alert, setAlert] = useState(false);
+  const [modalEliminar, setModalEliminar] = useState(false);
   
   const mostrarAlert = () => {
     if(alert){
@@ -70,27 +72,27 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
 
   };
 
-  const borrarEstudiantes = async (id) => {
-    await axios.delete(`${endpoint}/kodigo/${id}`)
-    .then(response => {
-      if(response.status === 200){
-        toast.dark("Se Elimino Correctamente !", {
-          position: toast.POSITION.TOP_LEFT,
-        });
-        getAllEstudents();
-      }else{
-        toast.error("No Elimino Vuelva a intentarlo...", {
-          position: toast.POSITION.TOP_LEFT
-          // className: 'alertSuccess'
-        });
-      }
-    })
-    .catch(error => {
-      toast.error("No Elimino Vuelva a intentarlo...", {
-        position: toast.POSITION.TOP_LEFT
-      });
-    })
-  };
+  // const borrarEstudiantes = async (id) => {
+  //   await axios.delete(`${endpoint}/kodigo/${id}`)
+  //   .then(response => {
+  //     if(response.status === 200){
+  //       toast.dark("Se Elimino Correctamente !", {
+  //         position: toast.POSITION.TOP_LEFT,
+  //       });
+  //       getAllEstudents();
+  //     }else{
+  //       toast.error("No Elimino Vuelva a intentarlo...", {
+  //         position: toast.POSITION.TOP_LEFT
+  //         // className: 'alertSuccess'
+  //       });
+  //     }
+  //   })
+  //   .catch(error => {
+  //     toast.error("No Elimino Vuelva a intentarlo...", {
+  //       position: toast.POSITION.TOP_LEFT
+  //     });
+  //   })
+  // };
 
   return (
     <div className="bo">
@@ -155,7 +157,8 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
 
                        <button
                         type="button"
-                        onClick={() => borrarEstudiantes(estudiante.id)}
+                        onClick={() => {setId(estudiante.id);
+                          setModalEliminar(true)}}
                         className="btn"
                         id="boto-a"><span className="material-symbols-outlined" id="dele">delete</span> &nbsp;Eliminar</button>
 
@@ -257,6 +260,8 @@ const Estudiantes = ({ refresh, setRefresh  }) => {
         setRefresh={setRefresh}
         setAlert={setAlert}
       />
+
+      <ModalEliminar modal={modalEliminar} setModal={setModalEliminar} id={id} setRefresh={setRefresh} />
       
     </div>
   );

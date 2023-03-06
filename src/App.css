@@ -14,7 +14,7 @@ html {
   height: 100%;
   text-align: center;
 }
-#modal-x{background-color:#2F0743; width: auto; height: auto; border:1px solid #2F0743; padding: 5px 5px; color: white;}
+#modal-x{cursor: pointer;background-color:#2F0743; width: auto; height: auto; border:1px solid #2F0743; padding: 5px 5px; color: white;}
 
 .err {
   background-color: rgba(0, 0, 0, 0.6);

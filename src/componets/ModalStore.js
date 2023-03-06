@@ -74,10 +74,10 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
     reset();
   }, [modal]);
   return (
-    <Modal show={modal} setModal={false}>
+    <Modal show={modal} onHide={()=>setModal(false)}>
       <Modal.Header>
         <Modal.Title>Informacion Estudiante</Modal.Title>
-        <div><a href="#" onClick={()=>setModal(false)}><span class="material-symbols-outlined" id="modal-x">close</span></a></div>
+        <div onClick={()=>setModal(false)}><span class="material-symbols-outlined" id="modal-x">close</span></div>
       </Modal.Header>
       <Modal.Body>
         <form>
@@ -137,7 +137,7 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
             />
           </div>
           <br />
-          
+{/*           
           <div className="center">
             <h4 className="h4-i">Fecha De Facturacion :</h4>
           </div>
@@ -151,7 +151,7 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
               aria-describedby="addon-wrapping"
             />
           </div>
-          <br />
+          <br /> */}
           <div className="input-group flex-nowrap">
             <input
               type="number"
@@ -173,7 +173,7 @@ const ModalStore = ({ modal, setModal, setRefresh, setAlert }) => {
               aria-describedby="addon-wrapping"
             />
           </div>
-          <br/>
+          {/* <br/> */}
           {/* <div className="center">
             <h4 className="h4-i">Fecha De Pago </h4>
           </div>
